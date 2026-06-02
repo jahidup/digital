@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Check Results – Sankalp Digital Pathshala | Instant Marksheet">
+  <meta name="description" content="Check your Sankalp Digital Pathshala exam results instantly. Enter Registration Number & Date of Birth – no login required. Official, verified marksheet with photo.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.sankalpdigitalpathshala.online/results.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Check Results – Sankalp Digital Pathshala | Instant Marksheet">
+  <meta property="og:description" content="Check your Sankalp Digital Pathshala exam results instantly. Enter Registration Number & Date of Birth – no login required. Official, verified marksheet with photo.">
+  <meta property="og:image" content="https://www.sankalpdigitalpathshala.online/assets/og-results.jpg">
+  <meta property="og:url" content="https://www.sankalpdigitalpathshala.online/results.html">
+  
+  <title>Check Results – Sankalp Digital Pathshala | Instant Marksheet</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="background:var(--primary); color:white; font-family:'Poppins', sans-serif; font-weight:800; padding:0.4rem 0.8rem; border-radius:12px; font-size:1.4rem;">SDP</span>
+          <span style="font-family:'Poppins', sans-serif; font-weight:700; font-size:1.3rem; color:var(--navy); line-height:1.1;">Sankalp<br><span style="font-size:0.9rem; color:var(--primary); font-weight:500;">Digital Pathshala</span></span>
+        </div>
+      </a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+      <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="study-material.html">Study Material</a></li>
+        <li><a href="test-series.html">Test Series</a></li>
+        <li><a href="results.html" class="active">Results</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="ai-assistant.html" class="btn-primary btn-nav">AI Assistant</a>
+        <a href="https://wa.me/919453961105" target="_blank" class="btn-whatsapp btn-nav">💬 WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Header -->
+  <section class="section" style="background-color: var(--navy); color: var(--white); text-align: center; padding: 4rem 0;">
+    <div class="container">
+      <h1 style="color: var(--white); font-size: 3.5rem; margin-bottom: 1rem;">Public Result Checker</h1>
+      <p style="color: var(--slate-light); font-size: 1.3rem;">Enter your registration credentials to fetch and print your official verified marksheet.</p>
+    </div>
+  </section>
+
+  <!-- Explainer Content (5x Rich) -->
+  <section class="section reveal" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="section-header text-center" style="margin-bottom: 3rem;">
+        <h2>Academic Record Verification</h2>
+        <p>
+          Students and parents can verify exam results directly through our online portal. Results are updated weekly following academic assessments.
+        </p>
+      </div>
+      <div style="background-color: var(--off-white); padding: 3.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); font-size: 1.05rem; color: var(--slate); line-height: 1.7; margin-bottom: 4rem;">
+        <h4 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.25rem;">📝 Verification Guidelines:</h4>
+        <ul style="padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem;">
+          <li><strong>Registration Code:</strong> Enter the unique registration code provided at the time of enrollment (e.g. SDP-2026-001).</li>
+          <li><strong>Date of Birth:</strong> Select your date of birth matching official admission records.</li>
+          <li><strong>Issues:</strong> For questions about missing grades or spelling corrections, contact the administration desk directly.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Result Checker Search Panel -->
+  <section class="section reveal" style="padding-top: 0;">
+    <div class="container">
+      
+      <div class="results-container">
+        <div style="background-color: var(--off-white); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+          <h3 style="margin-bottom: 1.5rem; text-align: center;">Verify Student Records</h3>
+          <form id="checkResultForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="input-group">
+              <label for="regNo">Registration Number</label>
+              <input type="text" id="regNo" class="form-control" placeholder="E.g., SDP-2026-001" required>
+            </div>
+            
+            <div class="input-group">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn-primary" style="margin-top: 1rem;">Verify and Fetch Marksheet</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Marksheet Output Card -->
+      <div class="marksheet-card" id="marksheetCard" style="border: 10px double var(--navy); border-radius: var(--radius-md); padding: 5rem; box-shadow: var(--shadow-lg); position: relative; margin-top: 4rem;">
+        <span class="verified-badge">✓ SDP OFFICIAL VERIFIED RECORD</span>
+        
+        <div class="marksheet-header">
+          <h3>Sankalp Digital Pathshala</h3>
+          <p>Salemgarh, Tamkuhi, Kushinagar, Uttar Pradesh - 274407</p>
+          <p style="font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 1rem; color: var(--navy); font-weight: 700;">Official Academic Report Card</p>
+        </div>
+
+        <div class="marksheet-body">
+          <div class="marksheet-info">
+            <div class="info-row">
+              <div class="info-label">Student Name</div>
+              <div class="info-val" id="mStudentName">N/A</div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Father's Name</div>
+              <div class="info-val" id="mFatherName">N/A</div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Registration No.</div>
+              <div class="info-val" id="mRegNo">N/A</div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Date of Birth</div>
+              <div class="info-val" id="mDob">N/A</div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Overall Grade</div>
+              <div class="info-val" id="mGrade" style="color: var(--primary); font-size: 1.25rem;">N/A</div>
+            </div>
+            <div class="info-row">
+              <div class="info-label">Remarks</div>
+              <div class="info-val" id="mRemarks">N/A</div>
+            </div>
+          </div>
+          
+          <div class="marksheet-photo-container">
+            <img src="" alt="Student Photo" class="marksheet-photo" id="mPhoto">
+          </div>
+        </div>
+
+        <div class="marksheet-footer">
+          <div>
+            <p style="font-size: 0.95rem; color: var(--slate);">Date Issued: 2026-06-02</p>
+            <p style="font-size: 0.9rem; color: var(--slate-light); margin-top: 0.5rem;">Sankalp Shiksha Foundation</p>
+          </div>
+          <div class="marksheet-signature">
+            <div class="signature-line"></div>
+            <p style="font-weight: 600; font-size: 1rem;">Authorized Signatory</p>
+            <p style="font-size: 0.9rem; color: var(--slate);">Dr. Arvind Sharma, CAO</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="margin-bottom:1.5rem;">Sankalp Digital Pathshala</h4>
+          <p>Founded in 2020 under the Sankalp Shiksha Foundation. Delivering premium offline classroom coaching with state-of-the-art AI analytics and doubt support.</p>
+          <p><strong>Address:</strong> Salemgarh, Tamkuhi, Kushinagar, Uttar Pradesh, 274407.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Classroom Programs</a></li>
+            <li><a href="study-material.html">Study Material</a></li>
+            <li><a href="test-series.html">Mock Test Portal</a></li>
+            <li><a href="results.html">Public Verification Results</a></li>
+            <li><a href="gallery.html">Campus Photo Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>AI Tools & Help</h4>
+          <ul class="footer-links">
+            <li><a href="ai-assistant.html">AI Doubt Assistant</a></li>
+            <li><a href="sankalp-sathi.html">Sankalp Sathi AI Chatbot</a></li>
+            <li><a href="faq.html">FAQ System</a></li>
+            <li><a href="contact.html">Send Inquiry Form</a></li>
+            <li><a href="admin-login.html">Administrator Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get In Touch</h4>
+          <p>Have questions about admission processes, batch schedules, or demo classes?</p>
+          <p><strong>Call:</strong> <a href="tel:+919453961105" style="color:var(--primary);">+91 9453961105</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@sankalppathshala.com" style="color:var(--primary);">info@sankalppathshala.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sankalp Digital Pathshala. All rights reserved. Created under Sankalp Shiksha Foundation.</p>
+        <p>AI Developer Credits: NexGenAiTech | Developer: Jahid (+91 8055698328) | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-widgets">
+    <a href="sankalp-sathi.html" class="widget-btn widget-ai" title="Chat with Sankalp Sathi AI">💬</a>
+    <a href="https://wa.me/919453961105" target="_blank" class="widget-btn widget-whatsapp" title="Connect on WhatsApp">🟢</a>
+  </div>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>

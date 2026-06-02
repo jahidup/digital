@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="AI Assistant – Sankalp Digital Pathshala | 24/7 Smart Mentor">
+  <meta name="description" content="Access your personal AI academic assistant – chat, solve questions & generate study plans. Available 24/7 in Hindi, English & Hinglish.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.sankalpdigitalpathshala.online/ai-assistant.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Assistant – Sankalp Digital Pathshala | 24/7 Smart Mentor">
+  <meta property="og:description" content="Access your personal AI academic assistant – chat, solve questions & generate study plans. Available 24/7 in Hindi, English & Hinglish.">
+  <meta property="og:image" content="https://www.sankalpdigitalpathshala.online/assets/og-assistant.jpg">
+  <meta property="og:url" content="https://www.sankalpdigitalpathshala.online/ai-assistant.html">
+  
+  <title>AI Assistant – Sankalp Digital Pathshala | 24/7 Smart Mentor</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="background:var(--primary); color:white; font-family:'Poppins', sans-serif; font-weight:800; padding:0.4rem 0.8rem; border-radius:12px; font-size:1.4rem;">SDP</span>
+          <span style="font-family:'Poppins', sans-serif; font-weight:700; font-size:1.3rem; color:var(--navy); line-height:1.1;">Sankalp<br><span style="font-size:0.9rem; color:var(--primary); font-weight:500;">Digital Pathshala</span></span>
+        </div>
+      </a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+      <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="study-material.html">Study Material</a></li>
+        <li><a href="test-series.html">Test Series</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="ai-assistant.html" class="btn-primary btn-nav active">AI Assistant</a>
+        <a href="https://wa.me/919453961105" target="_blank" class="btn-whatsapp btn-nav">💬 WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Header -->
+  <section class="section" style="background-color: var(--navy); color: var(--white); text-align: center; padding: 4rem 0;">
+    <div class="container">
+      <h1 style="color: var(--white); font-size: 3.5rem; margin-bottom: 1rem;">AI Student Assistant Suite</h1>
+      <p style="color: var(--slate-light); font-size: 1.3rem;">Chat with your mentor, solve homework doubts, or generate custom revision timetables instantly.</p>
+    </div>
+  </section>
+
+  <!-- Explainer Content (5x Rich) -->
+  <section class="section reveal" style="padding-bottom: 2rem; padding-top: 4rem;">
+    <div class="container">
+      <div style="background-color: var(--off-white); padding: 3.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); font-size: 1.05rem; color: var(--slate); line-height: 1.8; margin-bottom: 4rem;">
+        <h4 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.25rem;">📅 Active Recall Timetable Scheduler:</h4>
+        <p>Our study plan generator uses Google Gemini to create custom timetables tailored to your learning goals. The generator structure is designed to:</p>
+        <ul style="padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem;">
+          <li>Allocate specific hours based on your target class and daily availability.</li>
+          <li>Incorporate active recall sessions and spaced repetition intervals for better retention.</li>
+          <li>Structure regular breaks to help maintain focus and manage study fatigue.</li>
+          <li>Highlight key chemistry reaction maps, physics derivations, and math proofs to focus on.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Suite Interface -->
+  <section class="section reveal" style="padding-top: 0; padding-bottom: 6rem;">
+    <div class="container tab-container">
+      
+      <!-- Suite Tabs Navigation -->
+      <div class="tab-navigation" style="margin-bottom: 4rem;">
+        <button class="tab-btn active" data-tab="suiteChat">💬 Chat Mentor</button>
+        <button class="tab-btn" data-tab="suiteSolver">🧬 Doubt Solver</button>
+        <button class="tab-btn" data-tab="suitePlan">📅 Study Plan Generator</button>
+      </div>
+
+      <!-- Tab 1: Chat Mentor -->
+      <div class="tab-content active" id="suiteChat">
+        <div class="chatbot-container" style="height: 500px;">
+          <div class="chat-main" style="width: 100%;">
+            <div class="chat-messages" id="suiteMessages" style="height: 380px;">
+              <div class="chat-message bot">
+                Hello! I am your AI assistant mentor. Ask me any question about study planning, exam revision methods, or offline classroom schedules!
+              </div>
+              <div class="typing-indicator" id="suiteTyping" style="display:none;">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <form id="suiteChatForm" class="chat-form">
+                <input type="text" id="suiteChatInput" placeholder="Type your mentor query... (e.g. Give me board exam strategies)" required autocomplete="off">
+                <button type="submit">➔</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Doubt Solver -->
+      <div class="tab-content" id="suiteSolver">
+        <div class="ai-solver-container" style="box-shadow: none; border: 1px solid var(--border);">
+          <div class="solver-panel" style="display: block; padding: 2rem;">
+            <form id="suiteSolverForm" class="solver-form">
+              <div class="input-group">
+                <label for="suiteSolverText">Enter Academic Doubt</label>
+                <textarea id="suiteSolverText" rows="5" class="form-control" placeholder="Write question details..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary">Get step-by-step solution</button>
+            </form>
+            
+            <div class="ai-solution-box" id="suiteSolutionBox">
+              <h4 style="margin-bottom: 1rem; color: var(--primary);">🤖 AI Answer Output:</h4>
+              <div class="solution-content" id="suiteSolutionContent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Study Plan Generator -->
+      <div class="tab-content" id="suitePlan">
+        <div class="ai-solver-container" style="box-shadow: none; border: 1px solid var(--border);">
+          <div class="solver-panel" style="display: block; padding: 2rem;">
+            <form id="suitePlanForm" class="solver-form">
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="planClass">Target Class / Exam</label>
+                  <input type="text" id="planClass" class="form-control" placeholder="E.g., Class 12 PCM / JEE Main" required>
+                </div>
+                <div class="input-group">
+                  <label for="planHours">Daily Study Hours</label>
+                  <input type="number" id="planHours" class="form-control" min="1" max="16" placeholder="E.g., 6" required>
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="planSubjects">Focus Subject Topics</label>
+                <input type="text" id="planSubjects" class="form-control" placeholder="E.g., Organic chemistry, Integration calculus" required>
+              </div>
+              <button type="submit" class="btn-primary">Generate 7-Day Timetable</button>
+            </form>
+
+            <div class="ai-solution-box" id="suitePlanBox">
+              <h4 style="margin-bottom: 1rem; color: var(--primary);">📅 Solved Timetable Plan:</h4>
+              <div class="solution-content" id="suitePlanContent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive JavaScript logic for AI Assistant Suite -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Suite Chatbot logic
+      const chatForm = document.getElementById('suiteChatForm');
+      const chatMessages = document.getElementById('suiteMessages');
+      const chatInput = document.getElementById('suiteChatInput');
+      const typingIndicator = document.getElementById('suiteTyping');
+      let history = [];
+
+      if (chatForm) {
+        chatForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const txt = chatInput.value.trim();
+          if (!txt) return;
+
+          chatInput.value = '';
+          const userDiv = document.createElement('div');
+          userDiv.classList.add('chat-message', 'user');
+          userDiv.textContent = txt;
+          chatMessages.appendChild(userDiv);
+          history.push({ role: 'user', content: txt });
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          // Show typing
+          typingIndicator.style.display = 'block';
+          chatMessages.appendChild(typingIndicator);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+
+          const botDiv = document.createElement('div');
+          botDiv.classList.add('chat-message', 'bot');
+          botDiv.innerHTML = `<span class="blinking-cursor">|</span>`;
+
+          try {
+            const res = await fetch('/api/chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ messages: history })
+            });
+
+            typingIndicator.style.display = 'none';
+
+            if (!res.ok) {
+              botDiv.textContent = "AI Streaming could not load. Connect directly via WhatsApp.";
+              chatMessages.appendChild(botDiv);
+              return;
+            }
+
+            chatMessages.appendChild(botDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            const reader = res.body.getReader();
+            const decoder = new TextDecoder('utf-8');
+            let botText = '';
+
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+
+              const chunk = decoder.decode(value, { stream: true });
+              const lines = chunk.split('\n');
+              for (const line of lines) {
+                if (line.startsWith('data: ')) {
+                  const dataStr = line.slice(6).trim();
+                  if (dataStr === '[DONE]') continue;
+                  try {
+                    const parsed = JSON.parse(dataStr);
+                    const token = parsed.choices[0].delta.content || '';
+                    botText += token;
+                    botDiv.innerHTML = botText + `<span class="blinking-cursor">|</span>`;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                  } catch (err) {}
+                }
+              }
+            }
+
+            botDiv.innerHTML = botText;
+            history.push({ role: 'assistant', content: botText });
+          } catch (e) {
+            typingIndicator.style.display = 'none';
+            botDiv.textContent = "Network error loading response.";
+            chatMessages.appendChild(botDiv);
+          }
+        });
+      }
+
+      // 2. Suite Solver logic
+      const solverForm = document.getElementById('suiteSolverForm');
+      const solverContent = document.getElementById('suiteSolutionContent');
+      const solverBox = document.getElementById('suiteSolutionBox');
+
+      if (solverForm) {
+        solverForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = solverForm.querySelector('button');
+          const original = btn.textContent;
+          btn.disabled = true;
+          btn.innerHTML = `<span class="spinner"></span>Solving...`;
+
+          try {
+            const res = await fetch('/api/solve-question', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ question: document.getElementById('suiteSolverText').value })
+            });
+            const data = await res.json();
+            if (res.ok) {
+              solverContent.textContent = data.answer;
+              solverBox.style.display = 'block';
+            } else {
+              alert(data.error || 'Failed to solve.');
+            }
+          } catch (err) {
+            alert('Server network error.');
+          } finally {
+            btn.disabled = false;
+            btn.textContent = original;
+          }
+        });
+      }
+
+      // 3. Suite Study Plan Generator logic
+      const planForm = document.getElementById('suitePlanForm');
+      const planContent = document.getElementById('suitePlanContent');
+      const planBox = document.getElementById('suitePlanBox');
+
+      if (planForm) {
+        planForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = planForm.querySelector('button');
+          const original = btn.textContent;
+          btn.disabled = true;
+          btn.innerHTML = `<span class="spinner"></span>Generating Study Plan...`;
+
+          const pClass = document.getElementById('planClass').value;
+          const pHours = document.getElementById('planHours').value;
+          const pSubjects = document.getElementById('planSubjects').value;
+
+          const prompt = `Generate a detailed, premium 7-day study timetable and plan for a ${pClass} student who can commit ${pHours} hours per day. Focus subjects: ${pSubjects}. Add daily milestones, active recall intervals, and rest periods. Return formatting in clean paragraphs.`;
+
+          try {
+            const res = await fetch('/api/solve-question', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ question: prompt })
+            });
+            const data = await res.json();
+            if (res.ok) {
+              planContent.textContent = data.answer;
+              planBox.style.display = 'block';
+            } else {
+              alert(data.error || 'Plan generation failed.');
+            }
+          } catch (err) {
+            alert('Server error.');
+          } finally {
+            btn.disabled = false;
+            btn.textContent = original;
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="margin-bottom:1.5rem;">Sankalp Digital Pathshala</h4>
+          <p>Founded in 2020 under the Sankalp Shiksha Foundation. Delivering premium offline classroom coaching with state-of-the-art AI analytics and doubt support.</p>
+          <p><strong>Address:</strong> Salemgarh, Tamkuhi, Kushinagar, Uttar Pradesh, 274407.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Classroom Programs</a></li>
+            <li><a href="study-material.html">Study Material</a></li>
+            <li><a href="test-series.html">Mock Test Portal</a></li>
+            <li><a href="results.html">Public Verification Results</a></li>
+            <li><a href="gallery.html">Campus Photo Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>AI Tools & Help</h4>
+          <ul class="footer-links">
+            <li><a href="ai-assistant.html">AI Doubt Assistant</a></li>
+            <li><a href="sankalp-sathi.html">Sankalp Sathi AI Chatbot</a></li>
+            <li><a href="faq.html">FAQ System</a></li>
+            <li><a href="contact.html">Send Inquiry Form</a></li>
+            <li><a href="admin-login.html">Administrator Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get In Touch</h4>
+          <p>Have questions about admission processes, batch schedules, or demo classes?</p>
+          <p><strong>Call:</strong> <a href="tel:+919453961105" style="color:var(--primary);">+91 9453961105</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@sankalppathshala.com" style="color:var(--primary);">info@sankalppathshala.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sankalp Digital Pathshala. All rights reserved. Created under Sankalp Shiksha Foundation.</p>
+        <p>AI Developer Credits: NexGenAiTech | Developer: Jahid (+91 8055698328) | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-widgets">
+    <a href="https://wa.me/919453961105" target="_blank" class="widget-btn widget-whatsapp" title="Connect on WhatsApp">🟢</a>
+  </div>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>

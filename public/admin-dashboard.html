@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Admin Dashboard – Sankalp Digital Pathshala">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>Admin Dashboard – Sankalp Digital Pathshala</title>
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    /* Section specific style tweaks for dashboard panels */
+    .dashboard-panel { display: none; }
+    .dashboard-panel.active { display: block; }
+    .nav-active { border-left: 4px solid var(--primary); background-color: var(--navy-light); color: var(--white) !important; }
+  </style>
+</head>
+<body>
+
+  <div class="admin-layout">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-header">
+        <h3>SDP Admin Portal</h3>
+        <p style="font-size: 0.85rem; color: var(--slate-light); margin-top: 0.2rem;">Kushinagar CRM Platform</p>
+      </div>
+      <ul class="admin-menu">
+        <li class="menu-item active" data-panel="panelOverview"><a href="#">📊 System Overview</a></li>
+        <li class="menu-item" data-panel="panelLeads"><a href="#">⚡ AI Lead CRM</a></li>
+        <li class="menu-item" data-panel="panelInquiries"><a href="#">✉️ Student Inquiries</a></li>
+        <li class="menu-item"><a href="admin-results.html">📝 Results Manager ➔</a></li>
+        <li class="menu-item" data-panel="panelPrograms"><a href="#">🏫 Course Manager</a></li>
+        <li class="menu-item" data-panel="panelGallery"><a href="#">🖼️ Gallery Manager</a></li>
+        <li class="menu-item" data-panel="panelEvents"><a href="#">📅 Events Manager</a></li>
+      </ul>
+      <div style="margin-top: auto; padding: 2rem;">
+        <button id="adminLogoutBtn" class="btn-secondary" style="width: 100%; border-color: var(--slate-light); color: var(--white);">Logout</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-content">
+      
+      <!-- Top header bar -->
+      <header class="admin-header">
+        <div>
+          <h2 id="panelTitle">System Overview</h2>
+          <p style="color: var(--slate); margin-top: 0.2rem;">Real-time diagnostics and student engagement details.</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <span class="status-dot"></span>
+          <span style="font-weight: 500; font-size: 0.95rem;">Database Sync Active</span>
+        </div>
+      </header>
+
+      <!-- Panel 1: Overview -->
+      <div class="dashboard-panel active" id="panelOverview">
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <h4>Total AI Enrollment Leads</h4>
+            <div class="stat-val" id="statLeads">0</div>
+          </div>
+          <div class="admin-stat-card">
+            <h4>Total Student Inquiries</h4>
+            <div class="stat-val" id="statInquiries">0</div>
+          </div>
+          <div class="admin-stat-card">
+            <h4>Indexed Test Results</h4>
+            <div class="stat-val" id="statResults">0</div>
+          </div>
+          <div class="admin-stat-card">
+            <h4>AI Solved Doubts</h4>
+            <div class="stat-val" id="statQuestions">0</div>
+          </div>
+        </div>
+
+        <!-- AI Assistant Diagnostics breakdown -->
+        <div class="crm-card" style="padding: 2.5rem; margin-top: 2rem;">
+          <h3 style="margin-bottom: 1.5rem;">AI Tools Diagnostic Breakdown</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div style="background-color:var(--off-white); padding:1.5rem; border-radius:8px;">
+              <h5 style="color:var(--slate);">Text Queries Solved</h5>
+              <p style="font-size:2rem; font-weight:700; color:var(--navy);" id="diagText">0</p>
+            </div>
+            <div style="background-color:var(--off-white); padding:1.5rem; border-radius:8px;">
+              <h5 style="color:var(--slate);">Image Questions Solved</h5>
+              <p style="font-size:2rem; font-weight:700; color:var(--navy);" id="diagImage">0</p>
+            </div>
+            <div style="background-color:var(--off-white); padding:1.5rem; border-radius:8px;">
+              <h5 style="color:var(--slate);">PDF Assignment Scans</h5>
+              <p style="font-size:2rem; font-weight:700; color:var(--navy);" id="diagPdf">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: AI Lead CRM -->
+      <div class="dashboard-panel" id="panelLeads">
+        <div class="crm-card">
+          <div class="crm-table-container">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Student Details</th>
+                  <th>Class / Target</th>
+                  <th>Contact Info</th>
+                  <th>AI Summary & Score</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tblLeadsBody">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Inquiries CRM -->
+      <div class="dashboard-panel" id="panelInquiries">
+        <div class="crm-card">
+          <div class="crm-table-container">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Sender</th>
+                  <th>Contact info</th>
+                  <th>Subject & Message</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tblInquiriesBody">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Programs Course Manager -->
+      <div class="dashboard-panel" id="panelPrograms">
+        <div class="admin-form-container">
+          <h3 style="margin-bottom: 2rem;">Add New Classroom Program</h3>
+          <form id="frmAddProgram" class="solver-form">
+            <div class="form-row">
+              <div class="input-group">
+                <label for="pTitle">Program Title</label>
+                <input type="text" id="pTitle" class="form-control" required placeholder="E.g., Classes 9 – 10 Boards Prep">
+              </div>
+              <div class="input-group">
+                <label for="pCategory">Category</label>
+                <select id="pCategory" class="form-control" required>
+                  <option value="Foundation">Foundation (6-8)</option>
+                  <option value="Academic">Academic (9-10)</option>
+                  <option value="Senior Secondary">Senior Secondary (11-12)</option>
+                  <option value="Competitive">Competitive (JEE/NEET)</option>
+                  <option value="Future Skills">Future Skills</option>
+                </select>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="pDesc">Program Description</label>
+              <textarea id="pDesc" rows="3" class="form-control" required placeholder="Outline program targets..."></textarea>
+            </div>
+            <div class="input-group">
+              <label for="pFeatures">Key Highlights (One per line)</label>
+              <textarea id="pFeatures" rows="3" class="form-control" placeholder="E.g., Small batch size&#10;IITian faculty mentorship"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Save Course Program</button>
+          </form>
+        </div>
+
+        <div class="crm-card">
+          <div class="crm-table-container">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Course Title</th>
+                  <th>Category</th>
+                  <th>Highlights</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tblProgramsBody">
+                <!-- Dynamic -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 5: Gallery Manager -->
+      <div class="dashboard-panel" id="panelGallery">
+        <div class="admin-form-container">
+          <h3 style="margin-bottom: 2rem;">Upload Image to Campus Gallery</h3>
+          <form id="frmAddGallery" class="solver-form" enctype="multipart/form-data">
+            <div class="input-group">
+              <label>Select Photo File</label>
+              <input type="file" id="galFile" class="form-control" accept="image/*" required>
+            </div>
+            <div class="input-group">
+              <label for="galCaption">Caption Description</label>
+              <input type="text" id="galCaption" class="form-control" placeholder="E.g., Physics Lab Experiment Session">
+            </div>
+            <button type="submit" class="btn-primary">Upload to Cloudinary</button>
+          </form>
+        </div>
+
+        <div class="crm-card" style="padding: 2.5rem;">
+          <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:2rem;" id="galGrid">
+            <!-- Dynamic -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 6: Events Manager -->
+      <div class="dashboard-panel" id="panelEvents">
+        <div class="admin-form-container">
+          <h3 style="margin-bottom: 2rem;">Host New Event Announcement</h3>
+          <form id="frmAddEvent" class="solver-form" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="input-group">
+                <label for="evtTitle">Event Title</label>
+                <input type="text" id="evtTitle" class="form-control" required placeholder="E.g., Free Scholarship Test">
+              </div>
+              <div class="input-group">
+                <label for="evtDate">Date</label>
+                <input type="date" id="evtDate" class="form-control" required>
+              </div>
+            </div>
+            <div class="input-group">
+              <label for="evtDesc">Description</label>
+              <textarea id="evtDesc" rows="3" class="form-control" required placeholder="Provide event schedule details..."></textarea>
+            </div>
+            <div class="input-group">
+              <label>Upload Banner Image (Optional)</label>
+              <input type="file" id="evtFile" class="form-control" accept="image/*">
+            </div>
+            <button type="submit" class="btn-primary">Broadcast Event</button>
+          </form>
+        </div>
+
+        <div class="crm-card">
+          <div class="crm-table-container">
+            <table class="crm-table">
+              <thead>
+                <tr>
+                  <th>Event Banner</th>
+                  <th>Title & Description</th>
+                  <th>Date Scheduled</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tblEventsBody">
+                <!-- Dynamic -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Dashboard Controller Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Auth checkpoint
+      try {
+        const authRes = await fetch('/api/admin/check-auth');
+        const authData = await authRes.json();
+        if (!authData.authenticated) {
+          window.location.href = '/admin-login.html';
+          return;
+        }
+      } catch (err) {
+        window.location.href = '/admin-login.html';
+        return;
+      }
+
+      // 2. Sidebar Navigation logic
+      const menuItems = document.querySelectorAll('.admin-menu .menu-item');
+      const panels = document.querySelectorAll('.dashboard-panel');
+      const panelTitle = document.getElementById('panelTitle');
+
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const targetPanel = item.getAttribute('data-panel');
+          if (!targetPanel) return; // allows link clicks
+
+          menuItems.forEach(m => m.classList.remove('active'));
+          item.classList.add('active');
+
+          panels.forEach(p => p.classList.remove('active'));
+          document.getElementById(targetPanel).classList.add('active');
+
+          panelTitle.textContent = item.querySelector('a').textContent.slice(2);
+          
+          // Trigger segment-specific loadings
+          if (targetPanel === 'panelOverview') loadOverview();
+          if (targetPanel === 'panelLeads') loadLeads();
+          if (targetPanel === 'panelInquiries') loadInquiries();
+          if (targetPanel === 'panelPrograms') loadPrograms();
+          if (targetPanel === 'panelGallery') loadGallery();
+          if (targetPanel === 'panelEvents') loadEvents();
+        });
+      });
+
+      // 3. API Loaders
+      async function loadOverview() {
+        const res = await fetch('/api/admin/dashboard');
+        const data = await res.json();
+        if (res.ok) {
+          document.getElementById('statLeads').textContent = data.leads;
+          document.getElementById('statInquiries').textContent = data.inquiries;
+          document.getElementById('statResults').textContent = data.results;
+          document.getElementById('statQuestions').textContent = data.aiQuestions;
+          
+          document.getElementById('diagText').textContent = data.details.textSolves;
+          document.getElementById('diagImage').textContent = data.details.imageSolves;
+          document.getElementById('diagPdf').textContent = data.details.pdfSolves;
+        }
+      }
+      loadOverview(); // initial execution
+
+      // Leads CRM
+      window.updateLeadStatus = async (id, status) => {
+        const res = await fetch(`/api/admin/leads/${id}`, {
+          method: 'PATCH',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({status})
+        });
+        if (res.ok) loadLeads();
+      };
+
+      window.deleteLead = async (id) => {
+        if (confirm('Delete this student lead record permanently?')) {
+          const res = await fetch(`/api/admin/leads/${id}`, { method: 'DELETE' });
+          if (res.ok) loadLeads();
+        }
+      };
+
+      async function loadLeads() {
+        const res = await fetch('/api/admin/leads');
+        const list = await res.json();
+        const tbody = document.getElementById('tblLeadsBody');
+        tbody.innerHTML = '';
+        if (res.ok) {
+          list.forEach(lead => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td><strong>${lead.firstName}</strong><br><span style="font-size:0.85rem;color:var(--slate);">Parent: ${lead.parentName || 'N/A'}</span></td>
+              <td>${lead.class}<br><span style="font-size:0.85rem;color:var(--slate);">${lead.interest}</span></td>
+              <td>${lead.phone}<br><span style="font-size:0.85rem;color:var(--slate);">${lead.email || 'No Email'}</span><br><span style="font-size:0.85rem;color:var(--slate);">City: ${lead.city}</span></td>
+              <td>
+                <div style="font-size:0.9rem; margin-bottom:0.4rem; color:var(--slate); max-width:280px; font-style:italic;">"${lead.aiSummary || 'No AI summary generated.'}"</div>
+                <div style="font-weight:700;">Score: <span style="color:${lead.leadScore >= 75 ? 'var(--success)' : 'var(--slate)'}">${lead.leadScore} / 100</span></div>
+              </td>
+              <td><span class="badge badge-${lead.status}">${lead.status.toUpperCase()}</span></td>
+              <td>
+                <select class="form-control" style="font-size:0.85rem; padding:0.4rem; margin-bottom:0.4rem;" onchange="updateLeadStatus('${lead._id}', this.value)">
+                  <option value="">Update Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="converted">Converted</option>
+                </select>
+                <button onclick="deleteLead('${lead._id}')" class="admin-action-btn admin-btn-delete" title="Delete lead">🗑 Delete</button>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      // Inquiries CRM
+      window.updateInquiryStatus = async (id, status) => {
+        const res = await fetch(`/api/admin/inquiries/${id}`, {
+          method: 'PATCH',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({status})
+        });
+        if (res.ok) loadInquiries();
+      };
+
+      window.deleteInquiry = async (id) => {
+        if (confirm('Delete this inquiry record?')) {
+          const res = await fetch(`/api/admin/inquiries/${id}`, { method: 'DELETE' });
+          if (res.ok) loadInquiries();
+        }
+      };
+
+      async function loadInquiries() {
+        const res = await fetch('/api/admin/inquiries');
+        const list = await res.json();
+        const tbody = document.getElementById('tblInquiriesBody');
+        tbody.innerHTML = '';
+        if (res.ok) {
+          list.forEach(inq => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td><strong>${inq.fullName}</strong></td>
+              <td>${inq.mobile}<br><span style="font-size:0.85rem;color:var(--slate);">${inq.email}</span></td>
+              <td><strong>${inq.subject}</strong><br><p style="font-size:0.95rem;color:var(--slate);max-width:350px;">${inq.message}</p></td>
+              <td><span class="badge badge-${inq.status}">${inq.status.toUpperCase()}</span></td>
+              <td>
+                <select class="form-control" style="font-size:0.85rem; padding:0.4rem; margin-bottom:0.4rem;" onchange="updateInquiryStatus('${inq._id}', this.value)">
+                  <option value="">Update Status</option>
+                  <option value="new">New</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="closed">Closed</option>
+                </select>
+                <button onclick="deleteInquiry('${inq._id}')" class="admin-action-btn admin-btn-delete" title="Delete inquiry">🗑 Delete</button>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      // Programs Manager
+      const frmAddProgram = document.getElementById('frmAddProgram');
+      if (frmAddProgram) {
+        frmAddProgram.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const title = document.getElementById('pTitle').value;
+          const category = document.getElementById('pCategory').value;
+          const description = document.getElementById('pDesc').value;
+          const features = document.getElementById('pFeatures').value;
+
+          const res = await fetch('/api/admin/programs', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({title, category, description, features})
+          });
+
+          if (res.ok) {
+            alert('Classroom program saved!');
+            frmAddProgram.reset();
+            loadPrograms();
+          } else {
+            alert('Failed to save program.');
+          }
+        });
+      }
+
+      window.deleteProgram = async (id) => {
+        if (confirm('Delete this program?')) {
+          const res = await fetch(`/api/admin/programs/${id}`, { method: 'DELETE' });
+          if (res.ok) loadPrograms();
+        }
+      };
+
+      async function loadPrograms() {
+        const res = await fetch('/api/admin/programs');
+        const list = await res.json();
+        const tbody = document.getElementById('tblProgramsBody');
+        tbody.innerHTML = '';
+        if (res.ok) {
+          list.forEach(prog => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td><strong>${prog.title}</strong><br><span style="font-size:0.85rem;color:var(--slate);">${prog.description}</span></td>
+              <td><span class="badge badge-contacted">${prog.category}</span></td>
+              <td><ul style="padding-left:1.2rem; font-size:0.9rem;">${prog.features.map(f => `<li>${f}</li>`).join('')}</ul></td>
+              <td>
+                <button onclick="deleteProgram('${prog._id}')" class="admin-action-btn admin-btn-delete" title="Delete Course">🗑 Delete</button>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      // Gallery Manager
+      const frmAddGallery = document.getElementById('frmAddGallery');
+      if (frmAddGallery) {
+        frmAddGallery.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          const btn = frmAddGallery.querySelector('button');
+          btn.disabled = true;
+          btn.innerHTML = `<span class="spinner"></span>Uploading to Cloudinary...`;
+
+          const formData = new FormData();
+          formData.append('image', document.getElementById('galFile').files[0]);
+          formData.append('caption', document.getElementById('galCaption').value);
+
+          const res = await fetch('/api/admin/gallery', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (res.ok) {
+            alert('Image added to gallery!');
+            frmAddGallery.reset();
+            loadGallery();
+          } else {
+            alert('Upload failed.');
+          }
+          btn.disabled = false;
+          btn.textContent = 'Upload to Cloudinary';
+        });
+      }
+
+      window.deleteGalleryItem = async (id) => {
+        if (confirm('Delete image from gallery?')) {
+          const res = await fetch(`/api/admin/gallery/${id}`, { method: 'DELETE' });
+          if (res.ok) loadGallery();
+        }
+      };
+
+      async function loadGallery() {
+        const res = await fetch('/api/admin/gallery');
+        const list = await res.json();
+        const grid = document.getElementById('galGrid');
+        grid.innerHTML = '';
+        if (res.ok) {
+          list.forEach(item => {
+            const div = document.createElement('div');
+            div.style.border = '1px solid var(--border)';
+            div.style.padding = '0.5rem';
+            div.style.borderRadius = '8px';
+            div.style.textAlign = 'center';
+            div.innerHTML = `
+              <img src="${item.imageUrl}" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:0.5rem;">
+              <p style="font-size:0.85rem; margin-bottom:0.5rem; height:40px; overflow:hidden;">${item.caption || 'No Caption'}</p>
+              <button onclick="deleteGalleryItem('${item._id}')" class="admin-action-btn admin-btn-delete" style="font-size:0.85rem;">🗑 Delete</button>
+            `;
+            grid.appendChild(div);
+          });
+        }
+      }
+
+      // Events Manager
+      const frmAddEvent = document.getElementById('frmAddEvent');
+      if (frmAddEvent) {
+        frmAddEvent.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          const btn = frmAddEvent.querySelector('button');
+          btn.disabled = true;
+          btn.innerHTML = `<span class="spinner"></span>Publishing...`;
+
+          const formData = new FormData();
+          formData.append('title', document.getElementById('evtTitle').value);
+          formData.append('date', document.getElementById('evtDate').value);
+          formData.append('description', document.getElementById('evtDesc').value);
+          
+          const fileInput = document.getElementById('evtFile');
+          if (fileInput.files[0]) {
+            formData.append('image', fileInput.files[0]);
+          }
+
+          const res = await fetch('/api/admin/events', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (res.ok) {
+            alert('Event announcement broadcasted!');
+            frmAddEvent.reset();
+            loadEvents();
+          } else {
+            alert('Failed to broadcast event.');
+          }
+          btn.disabled = false;
+          btn.textContent = 'Broadcast Event';
+        });
+      }
+
+      window.deleteEvent = async (id) => {
+        if (confirm('Delete event?')) {
+          const res = await fetch(`/api/admin/events/${id}`, { method: 'DELETE' });
+          if (res.ok) loadEvents();
+        }
+      };
+
+      async function loadEvents() {
+        const res = await fetch('/api/admin/events');
+        const list = await res.json();
+        const tbody = document.getElementById('tblEventsBody');
+        tbody.innerHTML = '';
+        if (res.ok) {
+          list.forEach(evt => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+              <td>
+                ${evt.image ? `<img src="${evt.image}" style="width:80px; height:50px; object-fit:cover; border-radius:4px;">` : `<span style="color:var(--slate);">No Banner</span>`}
+              </td>
+              <td><strong>${evt.title}</strong><br><span style="font-size:0.85rem;color:var(--slate);">${evt.description}</span></td>
+              <td><strong>${evt.date}</strong></td>
+              <td>
+                <button onclick="deleteEvent('${evt._id}')" class="admin-action-btn admin-btn-delete">🗑 Delete</button>
+              </td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      }
+
+      // 4. Admin Logout logic
+      document.getElementById('adminLogoutBtn').addEventListener('click', async () => {
+        if (confirm('Confirm Log Out from administrator dashboard?')) {
+          const res = await fetch('/api/admin/logout', { method: 'POST' });
+          if (res.ok) {
+            window.location.href = '/admin-login.html';
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Administrator Login – Sankalp Digital Pathshala">
+  <meta name="description" content="Secure portal login for Sankalp Digital Pathshala administrators to manage inquiries, enrollment leads, events, and student marksheet results.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>Administrator Login – Sankalp Digital Pathshala</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="background:var(--primary); color:white; font-family:'Poppins', sans-serif; font-weight:800; padding:0.4rem 0.8rem; border-radius:12px; font-size:1.4rem;">SDP</span>
+          <span style="font-family:'Poppins', sans-serif; font-weight:700; font-size:1.3rem; color:var(--navy); line-height:1.1;">Sankalp<br><span style="font-size:0.9rem; color:var(--primary); font-weight:500;">Digital Pathshala</span></span>
+        </div>
+      </a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+      <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="study-material.html">Study Material</a></li>
+        <li><a href="test-series.html">Test Series</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="ai-assistant.html" class="btn-primary btn-nav">AI Assistant</a>
+        <a href="https://wa.me/919453961105" target="_blank" class="btn-whatsapp btn-nav">💬 WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Form Area -->
+  <section class="section">
+    <div class="container">
+      
+      <div class="results-container">
+        <div style="background-color: var(--off-white); padding: 3.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+          
+          <h2 style="text-align: center; margin-bottom: 2rem; color: var(--navy);">Admin Secure Access</h2>
+          
+          <form id="adminLoginForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <div class="input-group">
+              <label for="adminEmail">Administrator Email</label>
+              <input type="email" id="adminEmail" class="form-control" placeholder="admin@sankalppathshala.com" required autocomplete="username">
+            </div>
+
+            <div class="input-group">
+              <label for="adminPassword">Access Password</label>
+              <input type="password" id="adminPassword" class="form-control" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+
+            <div id="loginError" style="color: var(--danger); font-weight: 600; display: none; text-align: center;">
+              Invalid credentials.
+            </div>
+
+            <button type="submit" class="btn-primary" style="margin-top: 1rem;">Authenticate Portal</button>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Login Verification Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('adminLoginForm');
+      const errBox = document.getElementById('loginError');
+
+      if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          errBox.style.display = 'none';
+
+          const submitBtn = loginForm.querySelector('button');
+          const original = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `<span class="spinner"></span>Logging in...`;
+
+          const email = document.getElementById('adminEmail').value;
+          const password = document.getElementById('adminPassword').value;
+
+          try {
+            const res = await fetch('/api/admin/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, password })
+            });
+
+            const data = await res.json();
+            if (res.ok && data.success) {
+              window.location.href = '/admin-dashboard.html';
+            } else {
+              errBox.textContent = data.error || 'Authentication failed.';
+              errBox.style.display = 'block';
+            }
+          } catch (err) {
+            errBox.textContent = 'Server network connection error.';
+            errBox.style.display = 'block';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = original;
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="text-align: center; color: var(--slate-light); font-size: 0.95rem;">
+      <p>© 2026 Sankalp Digital Pathshala. All rights reserved. Created under Sankalp Shiksha Foundation.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>

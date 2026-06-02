@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="AI Question Solver – Sankalp Digital Pathshala | 24/7 Instant Solutions">
+  <meta name="description" content="Solve any academic question instantly with our AI solver. Supports text, image & PDF uploads. Step-by-step solutions for Maths, Science & more. Free to use.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.sankalpdigitalpathshala.online/ai-learning.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Question Solver – Sankalp Digital Pathshala | 24/7 Instant Solutions">
+  <meta property="og:description" content="Solve any academic question instantly with our AI solver. Supports text, image & PDF uploads. Step-by-step solutions for Maths, Science & more. Free to use.">
+  <meta property="og:image" content="https://www.sankalpdigitalpathshala.online/assets/og-ai.jpg">
+  <meta property="og:url" content="https://www.sankalpdigitalpathshala.online/ai-learning.html">
+  
+  <title>AI Question Solver – Sankalp Digital Pathshala | 24/7 Instant Solutions</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="background:var(--primary); color:white; font-family:'Poppins', sans-serif; font-weight:800; padding:0.4rem 0.8rem; border-radius:12px; font-size:1.4rem;">SDP</span>
+          <span style="font-family:'Poppins', sans-serif; font-weight:700; font-size:1.3rem; color:var(--navy); line-height:1.1;">Sankalp<br><span style="font-size:0.9rem; color:var(--primary); font-weight:500;">Digital Pathshala</span></span>
+        </div>
+      </a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+      <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="study-material.html">Study Material</a></li>
+        <li><a href="test-series.html">Test Series</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="ai-assistant.html" class="btn-primary btn-nav">AI Assistant</a>
+        <a href="https://wa.me/919453961105" target="_blank" class="btn-whatsapp btn-nav">💬 WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Header -->
+  <section class="section" style="background-color: var(--navy); color: var(--white); text-align: center; padding: 4rem 0;">
+    <div class="container">
+      <h1 style="color: var(--white); font-size: 3.5rem; margin-bottom: 1rem;">24/7 AI Doubt Solver</h1>
+      <p style="color: var(--slate-light); font-size: 1.3rem;">Type questions, snap pictures of problem pages, or scan PDF worksheets to receive step-by-step mathematical answers.</p>
+    </div>
+  </section>
+
+  <!-- Explainer Content (5x Rich) -->
+  <section class="section reveal" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="section-header text-center" style="margin-bottom: 3rem;">
+        <h2>Self-Study Support System</h2>
+        <p>
+          Our AI Doubt Solver is designed to support students during their home self-study hours, providing step-by-step solutions and explanations.
+        </p>
+      </div>
+      <div style="background-color: var(--off-white); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--border); font-size: 1.05rem; color: var(--slate); line-height: 1.7; margin-bottom: 4rem;">
+        <h4 style="color: var(--navy); margin-bottom: 1rem; font-size: 1.25rem;">💡 How to use the solver:</h4>
+        <ul style="padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem;">
+          <li><strong>Text Input:</strong> Enter the full question text, including values and context details.</li>
+          <li><strong>File Upload:</strong> Take a clear photo of physical textbooks, handwritten assignments, or scan PDF worksheets.</li>
+          <li><strong>Languages:</strong> You can submit queries in Hindi, English, or Hinglish.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Solver UI Wrapper -->
+  <section class="section reveal" style="padding-top: 0;">
+    <div class="container">
+      
+      <div class="ai-solver-container tab-container">
+        
+        <!-- Solver Category Tabs -->
+        <div class="ai-solver-tabs">
+          <button class="solver-tab active" data-tab="panelText">📝 Text Query</button>
+          <button class="solver-tab" data-tab="panelFile">📁 File Upload (Image/PDF)</button>
+        </div>
+
+        <!-- Text Solver Panel -->
+        <div class="solver-panel active" id="panelText">
+          <form id="aiSolverForm" class="solver-form">
+            <div class="input-group">
+              <label for="solverText">Enter Academic Doubt</label>
+              <textarea id="solverText" rows="6" class="form-control" placeholder="Example: Solve this quadratic equation: 2x^2 - 5x + 3 = 0, or type any physics question..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Resolve Doubt Now</button>
+          </form>
+          
+          <!-- Answer Display Box -->
+          <div class="ai-solution-box" id="aiSolutionBox">
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">🤖 AI Step-by-Step Explanation:</h4>
+            <div class="solution-content" id="solutionContent"></div>
+          </div>
+        </div>
+
+        <!-- File Solver Panel (Image & PDF) -->
+        <div class="solver-panel" id="panelFile">
+          <form id="solverFileForm" class="solver-form" enctype="multipart/form-data">
+            
+            <div class="input-group">
+              <label>Select Image or PDF</label>
+              <div class="file-dropzone">
+                <span style="font-size: 3rem;">📁</span>
+                <p>Click here to select a JPEG, PNG, or PDF file</p>
+                <input type="file" id="solverFile" class="file-input" accept="image/*,application/pdf" required>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="solverFileText">Optional: Add Text Description</label>
+              <textarea id="solverFileText" rows="3" class="form-control" placeholder="E.g., Solve question number 5 from this worksheet."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Analyze and Solve</button>
+          </form>
+
+          <!-- Answer Display Box for files -->
+          <div class="ai-solution-box" id="aiSolutionBoxFile">
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">🤖 AI Analysis Result:</h4>
+            <div class="solution-content" id="solutionContentFile"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Explainer Section -->
+  <section class="section section-bg reveal">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Features of our AI solver</h2>
+        <p>A round-the-clock tutor designed to support homework and conceptual self-study.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>⚡ Instant Solving</h3>
+          <p>Get immediate responses generated by Google Gemini 2.5 Flash, returning answers in less than 5 seconds.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📝 Formula Breakdown</h3>
+          <p>The AI does not just give final answers; it lists the exact algebraic or physical formula models used during calculations.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🌐 Multilingual</h3>
+          <p>Supports English, Hindi, and Hinglish prompts. Ask question doubts in the language you speak comfortably.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="margin-bottom:1.5rem;">Sankalp Digital Pathshala</h4>
+          <p>Founded in 2020 under the Sankalp Shiksha Foundation. Delivering premium offline classroom coaching with state-of-the-art AI analytics and doubt support.</p>
+          <p><strong>Address:</strong> Salemgarh, Tamkuhi, Kushinagar, Uttar Pradesh, 274407.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Classroom Programs</a></li>
+            <li><a href="study-material.html">Study Material</a></li>
+            <li><a href="test-series.html">Mock Test Portal</a></li>
+            <li><a href="results.html">Public Verification Results</a></li>
+            <li><a href="gallery.html">Campus Photo Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>AI Tools & Help</h4>
+          <ul class="footer-links">
+            <li><a href="ai-assistant.html">AI Doubt Assistant</a></li>
+            <li><a href="sankalp-sathi.html">Sankalp Sathi AI Chatbot</a></li>
+            <li><a href="faq.html">FAQ System</a></li>
+            <li><a href="contact.html">Send Inquiry Form</a></li>
+            <li><a href="admin-login.html">Administrator Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get In Touch</h4>
+          <p>Have questions about admission processes, batch schedules, or demo classes?</p>
+          <p><strong>Call:</strong> <a href="tel:+919453961105" style="color:var(--primary);">+91 9453961105</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@sankalppathshala.com" style="color:var(--primary);">info@sankalppathshala.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sankalp Digital Pathshala. All rights reserved. Created under Sankalp Shiksha Foundation.</p>
+        <p>AI Developer Credits: NexGenAiTech | Developer: Jahid (+91 8055698328) | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-widgets">
+    <a href="sankalp-sathi.html" class="widget-btn widget-ai" title="Chat with Sankalp Sathi AI">💬</a>
+    <a href="https://wa.me/919453961105" target="_blank" class="widget-btn widget-whatsapp" title="Connect on WhatsApp">🟢</a>
+  </div>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>

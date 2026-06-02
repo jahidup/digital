@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Gallery – Sankalp Digital Pathshala | Campus, Labs, Activities">
+  <meta name="description" content="View our campus gallery – smart classrooms, robotics lab, science lab, library, sports, events & more. Experience life at Sankalp Digital Pathshala.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.sankalpdigitalpathshala.online/gallery.html">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gallery – Sankalp Digital Pathshala | Campus, Labs, Activities">
+  <meta property="og:description" content="View our campus gallery – smart classrooms, robotics lab, science lab, library, sports, events & more. Experience life at Sankalp Digital Pathshala.">
+  <meta property="og:image" content="https://www.sankalpdigitalpathshala.online/assets/og-gallery.jpg">
+  <meta property="og:url" content="https://www.sankalpdigitalpathshala.online/gallery.html">
+  
+  <title>Gallery – Sankalp Digital Pathshala | Campus, Labs, Activities</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <span style="background:var(--primary); color:white; font-family:'Poppins', sans-serif; font-weight:800; padding:0.4rem 0.8rem; border-radius:12px; font-size:1.4rem;">SDP</span>
+          <span style="font-family:'Poppins', sans-serif; font-weight:700; font-size:1.3rem; color:var(--navy); line-height:1.1;">Sankalp<br><span style="font-size:0.9rem; color:var(--primary); font-weight:500;">Digital Pathshala</span></span>
+        </div>
+      </a>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden>
+      <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation">☰</label>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="study-material.html">Study Material</a></li>
+        <li><a href="test-series.html">Test Series</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="faculty.html">Faculty</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="ai-assistant.html" class="btn-primary btn-nav">AI Assistant</a>
+        <a href="https://wa.me/919453961105" target="_blank" class="btn-whatsapp btn-nav">💬 WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner Header -->
+  <section class="section" style="background-color: var(--navy); color: var(--white); text-align: center; padding: 4rem 0;">
+    <div class="container">
+      <h1 style="color: var(--white); font-size: 3.5rem; margin-bottom: 1rem;">Campus Gallery</h1>
+      <p style="color: var(--slate-light); font-size: 1.3rem;">Explore snapshots of classrooms, labs, events, and student milestones at Sankalp.</p>
+    </div>
+  </section>
+
+  <!-- Explainer Content (5x Rich) -->
+  <section class="section reveal" style="padding-bottom: 2rem;">
+    <div class="container">
+      <div class="section-header text-center" style="margin-bottom: 3rem;">
+        <h2>Explore Our Facilities</h2>
+        <p>
+          Take a visual tour of our campus, showing the learning spaces and resources we provide to support student development.
+        </p>
+      </div>
+      <div style="background-color: var(--off-white); padding: 3.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); font-size: 1.05rem; color: var(--slate); line-height: 1.8;">
+        <p>Our campus includes facilities designed to support academic and technical learning:</p>
+        <ul style="padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem;">
+          <li><strong>Smart Classrooms:</strong> Interactive digital displays and visual learning resources.</li>
+          <li><strong>Computer Lab:</strong> Internet-connected computers to support coding and app development studies.</li>
+          <li><strong>Robotics Lab:</strong> Hardware kits and prototyping tools for practical technology learning.</li>
+          <li><strong>Student Gamezone:</strong> Chess and logic games to help students relax and recharge between study sessions.</li>
+          <li><strong>Reading Library:</strong> A quiet study environment with a collection of reference textbooks and resources.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Filter Panel -->
+  <section class="section reveal" style="padding-bottom: 2rem; padding-top: 0;">
+    <div class="container">
+      <div style="max-width: 500px; margin: 0 auto;">
+        <div class="input-group">
+          <label for="gallerySearch" style="text-align: center; margin-bottom: 0.5rem;">Filter Gallery Pictures</label>
+          <input type="text" id="gallerySearch" class="form-control" placeholder="Search by caption... (e.g., lab, classroom)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Grid -->
+  <section class="section reveal" style="padding-top: 2rem; padding-bottom: 6rem;">
+    <div class="container">
+      <!-- Hook for rendering in app.js -->
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal popup -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</span>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+    <span class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="margin-bottom:1.5rem;">Sankalp Digital Pathshala</h4>
+          <p>Founded in 2020 under the Sankalp Shiksha Foundation. Delivering premium offline classroom coaching with state-of-the-art AI analytics and doubt support.</p>
+          <p><strong>Address:</strong> Salemgarh, Tamkuhi, Kushinagar, Uttar Pradesh, 274407.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="courses.html">Classroom Programs</a></li>
+            <li><a href="study-material.html">Study Material</a></li>
+            <li><a href="test-series.html">Mock Test Portal</a></li>
+            <li><a href="results.html">Public Verification Results</a></li>
+            <li><a href="gallery.html">Campus Photo Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>AI Tools & Help</h4>
+          <ul class="footer-links">
+            <li><a href="ai-assistant.html">AI Doubt Assistant</a></li>
+            <li><a href="sankalp-sathi.html">Sankalp Sathi AI Chatbot</a></li>
+            <li><a href="faq.html">FAQ System</a></li>
+            <li><a href="contact.html">Send Inquiry Form</a></li>
+            <li><a href="admin-login.html">Administrator Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get In Touch</h4>
+          <p>Have questions about admission processes, batch schedules, or demo classes?</p>
+          <p><strong>Call:</strong> <a href="tel:+919453961105" style="color:var(--primary);">+91 9453961105</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@sankalppathshala.com" style="color:var(--primary);">info@sankalppathshala.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sankalp Digital Pathshala. All rights reserved. Created under Sankalp Shiksha Foundation.</p>
+        <p>AI Developer Credits: NexGenAiTech | Developer: Jahid (+91 8055698328) | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-widgets">
+    <a href="sankalp-sathi.html" class="widget-btn widget-ai" title="Chat with Sankalp Sathi AI">💬</a>
+    <a href="https://wa.me/919453961105" target="_blank" class="widget-btn widget-whatsapp" title="Connect on WhatsApp">🟢</a>
+  </div>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>
